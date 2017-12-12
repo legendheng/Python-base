@@ -104,15 +104,18 @@ pip install requests(用cmd命令进入python的Scripts目录，输入该命令�
 * 用\d可以匹配一个数字，\w可以匹配一个字母或数字
 * 用*表示任意个字符（包括0个）
 * 用+表示至少一个字符
+* 用.表示任意字符
 * 用?表示0个或1个字符
 * 用{n}表示n个字符
 * 用{n,m}表示n-m个字符
+* 用[]表示括号内的其中一个
 * ^表示行的开头，^\d表示必须以数字开头
 * $表示行的结束，\d$表示必须以数字结束
   * 基本所使用方法
     * （1）如果要匹配'010-12345'这样的号码呢？由于'-'是特殊字符，在正则表达式中，要用'\'转义，所以，上面的正则是\d{3}\-\d{3,8}
     * （2）[0-9a-zA-Z\_]可以匹配一个数字、字母或者下划线
-  * findall的使用方法(定义一个字符串例子secord='aeasdxxIxxqewexxLovexxwerxxyouxxguyg')
+    * （3）1[34578][0-9]{9}匹配电话号码
+  * findall的使用方法(定义一个字符串例子secord='aeasdxxIxxqewexxLovexxwerxxyouxxguyg')
     * （1）贪婪算法re.findall('xx.*xx',secord) (输出从最开始的xx到最后的xx)，输出为['xxIxxqewexxLovexxwerxxyouxx']
     * （2）非贪婪算法re.findall('xx.*?xx',secord) (从最开始的xx和第二个的xx，依次下去)，输出为['xxIxx', 'xxLovexx', 'xxyouxx']
     * （3）无敌算法（个人觉得非常爽）re.findall('asdxx(.*?)yg',secord) （输出asdxx到yg之间内容），输出['IxxqewexxLovexxwerxxyouxxgu']
