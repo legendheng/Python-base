@@ -113,12 +113,13 @@ pip install requests(用cmd命令进入python的Scripts目录，输入该命令�
 * $表示行的结束，\d$表示必须以数字结束
 * /s表示一个空格
 * /S表示是非空格
-* /s表示a-zA-Z_中的任意一个
-* /S表示非a-zA-Z_中的任意一个
+* /s表示0-9a-zA-Z_中的任意一个
+* /S表示非0-9a-zA-Z_中的任意一个
   * 基本所使用方法
     * （1）如果要匹配'010-12345'这样的号码呢？由于'-'是特殊字符，在正则表达式中，要用'\'转义，所以，上面的正则是\d{3}\-\d{3,8}
     * （2）[0-9a-zA-Z\_]可以匹配一个数字、字母或者下划线
     * （3）1[34578][0-9]{9}匹配电话号码
+    * （4）(\u4E00-\u9FA5)匹配中文，如line="This is Nike 北京大学"，可以使用".*?([\u4E00-\u9FA5]+大学)" 输出是结果对象加上group()属性
   * findall的使用方法(定义一个字符串例子secord='aeasdxxIxxqewexxLovexxwerxxyouxxguyg')
     * （1）贪婪算法re.findall('xx.*xx',secord) (输出从最开始的xx到最后的xx)，输出为['xxIxxqewexxLovexxwerxxyouxx']
     * （2）非贪婪算法re.findall('xx.*?xx',secord) (从最开始的xx和第二个的xx，依次下去)，输出为['xxIxx', 'xxLovexx', 'xxyouxx']
