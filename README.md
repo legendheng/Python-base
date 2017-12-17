@@ -105,7 +105,7 @@ pip install requests(用cmd命令进入python的Scripts目录，输入该命令�
 * 用*表示任意个字符（包括0个）
 * 用+表示至少一个字符
 * 用.表示任意字符
-* 用?表示0个或1个字符
+* 用?表示0个或1个字符,从贪婪算法转成非贪婪算法
 * 用{n}表示n个字符
 * 用{n,m}表示n-m个字符
 * 用[]表示括号内的其中一个
@@ -121,8 +121,8 @@ pip install requests(用cmd命令进入python的Scripts目录，输入该命令�
     * （3）1[34578][0-9]{9}匹配电话号码
     * （4）(\u4E00-\u9FA5)匹配中文，如line="This is Nike 北京大学"，可以使用".*?([\u4E00-\u9FA5]+大学)" 输出是结果对象加上group()属性
   * findall的使用方法(定义一个字符串例子secord='aeasdxxIxxqewexxLovexxwerxxyouxxguyg')
-    * （1）贪婪算法re.findall('xx.*xx',secord) (输出从最开始的xx到最后的xx)，输出为['xxIxxqewexxLovexxwerxxyouxx']
-    * （2）非贪婪算法re.findall('xx.*?xx',secord) (从最开始的xx和第二个的xx，依次下去)，输出为['xxIxx', 'xxLovexx', 'xxyouxx']
+    * （1）贪婪算法(匹配尽可能多的值)re.findall('xx.*xx',secord) (输出从最开始的xx到最后的xx)，输出为['xxIxxqewexxLovexxwerxxyouxx']
+    * （2）非贪婪算法(匹配最少的值)re.findall('xx.*?xx',secord) (从最开始的xx和第二个的xx，依次下去)，输出为['xxIxx', 'xxLovexx', 'xxyouxx']
     * （3）无敌算法（个人觉得非常爽）re.findall('asdxx(.*?)yg',secord) （输出asdxx到yg之间内容），输出['IxxqewexxLovexxwerxxyouxxgu']
   * sub替换某段字符
     * re.sub('123(.*?)123','123789123',s) #查找s字符串开头为123结尾为123的的字符串，替换成123789123
