@@ -145,10 +145,17 @@ else:
 <语句>        #如果没有异常发生
 ```
 ### 十四、文件操作
+  这是在文件已经存在的情况下使用
 ```python
 f=open('user.txt','a',encoding='utf8')  #a是文件的追加写入
 f.write("这是写入内容"+'\n')  #写入内容
 f.close() #关闭
+```
+  这是在文件还没创建的情况下使用
+```python
+with open("1.jpg","wb") as f:
+ f.write(test.content)
+ f.close()
 ```
 ### 十五、Lambda函数（被用来创建一个函数对象，并且将值返回给他们）
     格式：lambda 参数：表达式
